@@ -77,7 +77,7 @@ def _hparams(algorithm, dataset, random_seed):
         _hparam('mlp_dropout', 0., lambda r: r.choice([0.]))
 
     elif algorithm == "CaSN_IRM":
-        _hparam('max_optimization_step', 1000, r: lambda int(r.choice([1000])))
+        _hparam('max_optimization_step', 1000, lambda r:  int(r.choice([1000])))
         _hparam('irm_lambda', 0.001, lambda r: r.choice([0.001, 0.00001]))
         _hparam('irm_penalty_anneal_iters', 1000,
                 lambda r: int(r.choice([1000])))
